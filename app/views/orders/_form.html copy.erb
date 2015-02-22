@@ -1,0 +1,56 @@
+<div class="form-horizontal" role="form">
+	<%= form_for(@order) do |f| %>
+	<% if @order.errors.any? %>
+	<div id="error_explanation">
+		<h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+		<ul>
+			<% @order.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+			<% end %>
+		</ul>
+	</div>
+	<% end %>
+	<%= f.hidden_field :customer_id %>
+	<%#= f.hidden_field :order_amount %>
+	<div class="row">
+		<div class="form-group">
+			<div class="col-sm-2 form-label">
+				<%= f.label 'Bill #' %>
+			</div>
+			<div class="col-sm-1">
+				<%= f.text_field :bill_id, class: "form-control"%>
+			</div>
+			<div class="col-sm-2 form-label">
+				<%= f.label "Discount %" %>
+			</div>
+			<div class="col-sm-1">
+				<%= f.number_field :discount, value: 0.0, step: 0.5, min: 0.0, max: 99.0 , class: "form-control"%>
+			</div>
+			<div class="col-sm-2 form-label">
+				<%= f.label "Order amount: "%>
+				<span class="badge"><%= @order.order_amount %></span>
+			</div>
+		</div>
+	</div>
+	<%= f.fields_for :order_lines do |olf| %>
+	<div class="form-group">
+		<div class="col-sm-12">
+			<%= olf.hidden_field :order_id %>
+			<%= olf.label :product_id %>
+			<%= olf.collection_select(:product_id, Product.all, :id, :code) %>
+			<%= olf.label :colour_id %>
+			<%= olf.collection_select(:colour_id, Colour.all, :id, :name) %>
+			<%= olf.label :quantity %>
+			<%= olf.number_field :quantity, min: 1, max: 10000, step: 1 %>
+			<%= olf.label "Unit price" %>
+			<%= olf.number_field :price, min: 100, max: 10000, step: 1 %>
+			<%= olf.check_box :_destroy %>
+		</div>
+	</div>
+	<% end %>
+	<div class="actions">
+		<%= f.submit "Submit", class: "btn btn-default" %>
+		<%= link_to "Compute", order_compute_path(@order.id), class: "btn btn-primary"%>
+	</div>
+	<% end %>
+</div>

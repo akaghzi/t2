@@ -1,0 +1,11 @@
+<%= f.fields_for :order_lines do |olf| %>
+	<%= olf.hidden_field :order_id %>
+	<%= olf.label :product_id %>
+	<%= olf.collection_select(:product_id, Product.all, :id, :code) %>
+	<%= olf.label :colour_id %>
+	<%= olf.collection_select(:colour_id, Colour.all, :id, :name) %>
+	<%= olf.label :quantity %>
+	<%= olf.number_field :quantity, in: 1..10000, step: 1 %>
+	<%= olf.check_box :_destroy %>
+	<p><%#= link_to_add_fields "Add Question", f, :questions %></p>
+<% end %>

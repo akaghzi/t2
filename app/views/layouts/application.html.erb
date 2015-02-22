@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>T2</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
+</head>
+<body>
+	<div class="container">
+		<%= yield %>
+	<div id="footer">
+		<hr>
+		<ul class="nav nav-pills">
+			<li><%= link_to 'Home', root_path %></li>
+			<li><%= link_to 'Products', products_path %></li>
+			<li><%= link_to 'Colours', colours_path %></li>
+			<li><%= link_to 'Customers', customers_path %></li>
+		</ul>
+	</div>
+	</div>
+</body>
+</html>

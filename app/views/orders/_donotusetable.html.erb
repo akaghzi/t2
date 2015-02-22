@@ -1,0 +1,18 @@
+<% if @order.order_lines.count >= 1 %>
+<table class="table table-condensed">
+	<tr>
+		<th>code</th>
+		<th>specification</th>
+		<th>colour</th>
+		<th>quantity</th>
+	</tr>
+	<% @order.order_lines.each do|order_line| %>
+	<tr>
+		<td><%= order_line.product_id %></td>
+		<td><%= order_line.product_id %></td>
+		<td><%= order_line.colour_id %></td>
+		<td><%= order_line.quantity %></td>
+	</tr>
+	<% end %>
+</table>
+<% end %>

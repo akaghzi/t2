@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-header text-primary">
+	<%= "#{@customer.store} | #{@customer.city}" %>
+</h1>
+<h2 class="text-success pull-right">
+	<%= "owner: 	#{@customer.owner} | phone: #{@customer.phone}" %>
+</h2>
+<p><%= link_to 'new order', new_order_path(customer_id: @customer), class: "btn btn-primary" %></p>
+<h3>
+	List of orders:
+</h3>
+
+<% if @orders.blank? %>
+<p>
+	There is no order booked for this customer
+</p>
+
+<% else %>
+
+<table class="table table-condensed">
+	<tr>
+		<th>Order</th>
+		<th>Date</th>
+		<th>Total Amount</th>
+		<th>Discount %</th>
+		<th>Net Amount</th>
+		<th>Action</th>
+	</tr>
+	<% @orders.each do |order| %>
+	<tr>
+		<td><%= order.id %></td>
+		<td><%= order.created_at %></td>
+		<td><%= order.order_amount %></td>
+		<td><%= order.discount %></td>
+		<td><%= order.order_amount - (order.order_amount * order.discount / 100) %></td>
+		<td><%= link_to 'detail', order_path(order), class: "btn btn-default btn-sm"%>
+		</tr>
+		<% end %>
+	</table>
+	<% end %>

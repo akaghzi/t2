@@ -1,6 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Customers</h1>
+<h1 class="page-header">Customers</h1>
 
 <table class="table table-condensed">
   <thead>
@@ -21,7 +19,7 @@
         <td><%= customer.city.titleize %></td>
         <td><%= customer.phone %></td>
         <td><%= link_to 'Detail', customer_path(customer), class: "btn btn-primary btn-sm" %></td>
-        <td><%= link_to 'Edit', edit_customer_path(customer), class: "btn btn-primary btn-sm" %></td>
+        <td><%= link_to 'Edit', edit_customer_path(customer), class: "btn btn-warning btn-sm" %></td>
       </tr>
     <% end %>
   </tbody>

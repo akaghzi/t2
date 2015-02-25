@@ -1,6 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Products</h1>
+<h1 class="page-header">Products</h1>
 
 <table class="table table-condensed">
   <thead>
@@ -18,7 +16,7 @@
         <td><%= product.code.upcase %></td>
         <td><%= product.specification.capitalize %></td>
         <td><%= product.price %></td>
-        <td><%= link_to 'Edit', edit_product_path(product), class: "btn btn-primary btn-sm" %></td>
+        <td><%= link_to 'Edit', edit_product_path(product), class: "btn btn-warning btn-sm" %></td>
       </tr>
     <% end %>
   </tbody>

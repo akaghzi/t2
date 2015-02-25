@@ -1,6 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Colours</h1>
+<h1 class="page-header">Colours</h1>
 
 <table class="table table-condensed">
   <thead>
@@ -14,7 +12,7 @@
     <% @colours.each do |colour| %>
       <tr>
         <td><%= colour.name.capitalize %></td>
-        <td><%= link_to 'Edit', edit_colour_path(colour) , class: "btn btn-primary btn-sm"%></td>
+        <td><%= link_to 'Edit', edit_colour_path(colour) , class: "btn btn-warning btn-sm"%></td>
       </tr>
     <% end %>
   </tbody>

@@ -1,0 +1,26 @@
+<h1 class="page-header">Report</h1>
+<div class="row">
+	<div class="col-sm-4">
+		<div class="panel panel-info">
+			<!-- Default panel contents -->
+			<div class="panel-heading">Summary by time</div>
+			<div class="panel-body">
+				<p></p>
+			</div>
+
+			<!-- Table -->
+			<table class="table table-condensed">
+				<tr>
+					<th>Year-month</th>
+					<th>Total</th>
+				</tr>
+				<% @sumbytime.each do |yearmo| %>
+				<tr>
+					<td><%= yearmo.year_month %></td>
+					<td><%= yearmo.total %></td>
+				</tr>
+				<% end %>
+			</table>
+		</div>
+	</div>
+</div>

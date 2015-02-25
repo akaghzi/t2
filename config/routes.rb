@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'reports/index'
+
+  get 'reports/sumbycustomer'
+
+  get 'reports/sumbytime'
+
+  get 'reports/sumbycity'
+
   devise_for :users
   resources :colours
 

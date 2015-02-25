@@ -1,0 +1,26 @@
+<h1 class="page-header">Report</h1>
+<div class="row">
+	<div class="col-sm-4">
+		<div class="panel panel-info">
+			<!-- Default panel contents -->
+			<div class="panel-heading">Summary by customer</div>
+			<div class="panel-body">
+				<p></p>
+			</div>
+
+			<!-- Table -->
+			<table class="table table-condensed">
+				<tr>
+					<th>Customer</th>
+					<th>Total</th>
+				</tr>
+				<% @sumbycustomer.each do |customer| %>
+				<tr>
+					<td><%= customer.customer.store %></td>
+					<td><%= customer.total %></td>
+				</tr>
+				<% end %>
+			</table>
+		</div>
+	</div>
+</div>

@@ -2,28 +2,28 @@
 
 <%= form_for(resource, as: resource_name, html: {class: "form-horizontal"}, url: session_path(resource_name)) do |f| %>
 <div class="form-group">
-	<div class="form-label col-sm-2">
+	<div class="form-label">
 		<%= f.label :email %>
 	</div>
-	<div class="col-sm-4">
-		<%= f.email_field :email, autofocus: true , class: "form-control"%>
+	<div>
+		<%= f.email_field :email, placeholder: "email", autofocus: true , class: "form-control"%>
 	</div>
 </div>
 
 <div class="form-group">
-	<div class="form-label col-sm-2">
+	<div class="form-label">
 		<%= f.label :password %>
 	</div>
-	<div class="col-sm-4">
-		<%= f.password_field :password, autocomplete: "off" , class: "form-control"%>
+	<div>
+		<%= f.password_field :password, placeholder: "password", autocomplete: "off" , class: "form-control"%>
 	</div>
 </div>
 
 <% if devise_mapping.rememberable? -%>
 <div class="form-group">
-	<div class="form-label col-sm-2">
+	<div class="form-label">
 	</div>
-	<div class="col-sm-4">
+	<div>
 		<%= f.check_box :remember_me %>
 		<%= f.label :remember_me %>
 	</div>
@@ -31,9 +31,9 @@
 <% end -%>
 
 <div class="form-group">
-	<div class="form-label col-sm-2">
+	<div class="form-label">
 	</div>
-	<div class="col-sm-4">
+	<div>
 		<%= f.submit "Log in", class: "btn btn-default" %>
 	</div>
 </div>

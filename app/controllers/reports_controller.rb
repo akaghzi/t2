@@ -6,7 +6,7 @@ class ReportsController < ApplicationController
   end
 
   def sumbycustomer
-    # @sumbycustomer = Order.select("customer_id, sum(order_amount) as total").group("customer_id")
+    @sumbycustomer = Order.select("customer_id, sum(order_amount) as total").group("customer_id")
   end
 
   def sumbytime

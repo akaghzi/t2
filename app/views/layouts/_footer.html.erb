@@ -6,7 +6,9 @@
 		<li><%= link_to 'Colours', colours_path %></li>
 		<li><%= link_to 'Customers', customers_path %></li>
 		<li><%= link_to 'Reports', reports_index_path %></li>
+		<% if user_signed_in? %>
 		<li class = "pull-right"> <%= link_to 'logout', destroy_user_session_path, method: :delete, class: "btn btn-danger btn-sm " %></li>
+		<% end %>
 	</ul>
 	<hr>
 </div>

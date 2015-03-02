@@ -32,8 +32,8 @@
 		<td><%= order.order_amount %></td>
 		<td><%= order.discount %></td>
 		<td><%= order.order_amount - (order.order_amount * order.discount / 100) %></td>
-		<td><%= link_to 'detail', order_path(order), class: "btn btn-default btn-sm"%>
-		</tr>
-		<% end %>
-	</table>
+		<td><%= link_to 'detail', order_path(order), class: "btn btn-default btn-sm"%></td>
+	</tr>
 	<% end %>
+</table>
+<% end %>

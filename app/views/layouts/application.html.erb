@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang   = "en">
+<html lang= "en">
 <head>
 	<title>T2</title>
 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -15,7 +15,9 @@
 		<% if alert %>
 		<p class = "alert alert-danger alert-dismissible"><%= alert %></p>
 		<% end %>
-		<%= yield %>
+		<div class="row">
+			<%= yield %>
+		</div>
 		<div class= "footer">
 			<%= render :partial => 'layouts/footer' %>
 		</div>

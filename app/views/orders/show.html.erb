@@ -27,59 +27,58 @@
 		<td><%= order_line.price %></td>
 		<td><%= order_line.price * order_line.quantity %></td>
 		<td><%#= link_to "edit", edit_order_line_path(order_line), class: "btn btn-warning btn-sm" %>
-		    <%= link_to "delete", order_line_path(order_line), method: :delete, class: "btn btn-danger btn-sm" %>
-			</td>
-		</tr>
-		<% order_total = order_total + (order_line.price * order_line.quantity) %>
-		<% end %>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td><strong>Total</strong></td>
-			<td class="text-info">
-				<strong><%= order_total %></strong>
-			</td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td>Discount</td>
-			<td class="text-info">
-				(<%= order_total * @order.discount / 100 %>)
-			</td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td><strong>Net Amount</strong></td>
-			<td class="text-info">
-				<strong><%= order_total - (order_total * @order.discount / 100) %></strong>
-			</td>
-			<td></td>
-		</tr>
-	</table>
+			<%= link_to "delete", order_line_path(order_line), method: :delete, class: "btn btn-danger btn-sm" %>
+		</td>
+	</tr>
+	<% order_total = order_total + (order_line.price * order_line.quantity) %>
 	<% end %>
-	<div class="row">
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td><strong>Total</strong></td>
+		<td class="text-info">
+			<strong><%= order_total %></strong>
+		</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td>Discount</td>
+		<td class="text-info">
+			(<%= order_total * @order.discount / 100 %>)
+		</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td><strong>Net Amount</strong></td>
+		<td class="text-info">
+			<strong><%= order_total - (order_total * @order.discount / 100) %></strong>
+		</td>
+		<td></td>
+	</tr>
+</table>
+<% end %>
 	<%= form_for(@order_line, html: {class: "form-inline"}) do |f| %>
 	<%= f.hidden_field :order_id %>
-  <% if @order_line.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@order_line.errors.count, "error") %> prohibited this order_line from being saved:</h2>
-      <ul>
-      <% @order_line.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+	<% if @order_line.errors.any? %>
+	<div id="error_explanation">
+		<h2><%= pluralize(@order_line.errors.count, "error") %> prohibited this order_line from being saved:</h2>
+		<ul>
+			<% @order_line.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+			<% end %>
+		</ul>
+	</div>
+	<% end %>
 	<div class="form-group">
 		<%= f.label :product_id %>
 		<%= f.collection_select(:product_id, Product.all, :id, :code, {prompt: false}, class: "form-control") %>
@@ -96,9 +95,6 @@
 		<%= f.submit "Add", class: "btn btn-primary btn-sm" %>
 	</div>
 	<% end %>
-	</div>
 	<hr>
-	<div class="row">
-		<%= link_to 'Edit', edit_order_path(@order), class: "btn btn-warning" %> 
-		<%= link_to 'Back', customer_path(@order.customer_id), class: "btn btn-primary" %>
-	</div>
+	<%= link_to 'Edit', edit_order_path(@order), class: "btn btn-warning" %> 
+	<%= link_to 'Back', customer_path(@order.customer_id), class: "btn btn-primary" %>

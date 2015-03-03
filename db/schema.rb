@@ -49,11 +49,13 @@ ActiveRecord::Schema.define(version: 20150222034105) do
     t.decimal  "order_amount", precision: 10, scale: 2
     t.string   "bill_id"
     t.decimal  "discount",     precision: 2,  scale: 2
+    t.datetime "ordered_at"
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
   end
 
   add_index "orders", ["customer_id"], name: "index_orders_on_customer_id"
+  add_index "orders", ["ordered_at"], name: "index_orders_on_ordered_at"
 
   create_table "products", force: :cascade do |t|
     t.string   "code",          limit: 20

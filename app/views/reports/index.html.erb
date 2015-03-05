@@ -14,7 +14,7 @@
 		<% @sumbycustomer.each do |customer| %>
 		<tr>
 			<td><%= customer.customer.store %></td>
-			<td class="text-right"><%= customer.total %></td>
+			<td class="text-right"><%= number_with_delimiter(customer.total, delimiter: ",") %></td>
 		</tr>
 		<% end %>
 	</table>
@@ -34,7 +34,7 @@
 		<% @sumbycity.each do |city| %>
 		<tr>
 			<td><%= city.city %></td>
-			<td class="text-right"><%= city.total %></td>
+			<td class="text-right"><%= number_with_delimiter(city.total, delimiter: ",") %></td>
 		</tr>
 		<% end %>
 	</table>
@@ -54,7 +54,7 @@
 		<% @sumbytime.each do |yearmo| %>
 		<tr>
 			<td><%= yearmo.year_month %></td>
-			<td class="text-right"><%= yearmo.total %></td>
+			<td class="text-right"><%= number_with_delimiter(yearmo.total, delimiter: ",") %></td>
 		</tr>
 		<% end %>
 	</table>

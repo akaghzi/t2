@@ -29,9 +29,9 @@
 	<tr>
 		<td><%= order.bill_id %></td>
 		<td><%= order.ordered_at.strftime("%F") %></td>
-		<td><%= order.order_amount %></td>
-		<td><%= order.discount %></td>
-		<td><%= order.order_amount - (order.order_amount * order.discount / 100) %></td>
+		<td><%= number_with_delimiter(order.order_amount, delimiter: ",") %></td>
+		<td><%= number_with_delimiter(order.discount, delimiter: ",") %></td>
+		<td><%= number_with_delimiter(order.order_amount - (order.order_amount * order.discount / 100), delimiter: ",") %></td>
 		<td><%= link_to 'detail', order_path(order), class: "btn btn-primary btn-sm"%></td>
 	</tr>
 	<% end %>

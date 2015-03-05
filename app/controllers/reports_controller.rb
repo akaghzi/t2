@@ -3,7 +3,7 @@ class ReportsController < ApplicationController
   def index
     @sumbycustomer = Order.select("customer_id, sum(order_amount) as total").group("customer_id")
     @sumbytime = Order.select("strftime('%Y-%m',ordered_at) as year_month, sum(order_amount) as total").group("year_month")
-    @sumbycity = Order.select("city, sum(order_amount) as total").joins(:customer).group("city")
+    @sumbycity = Order.select("name, sum(order_amount) as total").joins(customer: :city).group("name")
   end
 
   def sumbycustomer

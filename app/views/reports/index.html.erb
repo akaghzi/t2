@@ -33,7 +33,7 @@
 		</tr>
 		<% @sumbycity.each do |city| %>
 		<tr>
-			<td><%= city.city %></td>
+			<td><%= city.name %></td>
 			<td class="text-right"><%= number_with_delimiter(city.total, delimiter: ",") %></td>
 		</tr>
 		<% end %>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :cities
+
   get 'reports/index'
 
   get 'reports/sumbycustomer'

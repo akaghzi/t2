@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150222034105) do
+ActiveRecord::Schema.define(version: 20150305043337) do
+
+  create_table "cities", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "colours", force: :cascade do |t|
     t.string   "name"
@@ -26,8 +32,10 @@ ActiveRecord::Schema.define(version: 20150222034105) do
     t.string   "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "city_id"
   end
 
+  add_index "customers", ["city_id"], name: "index_customers_on_city_id"
   add_index "customers", ["phone"], name: "index_customers_on_phone", unique: true
 
   create_table "order_lines", force: :cascade do |t|

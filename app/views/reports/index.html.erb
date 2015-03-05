@@ -1,83 +1,61 @@
 <h1 class="page-header">Reports</h1>
-<div class="row">
-	<div class="col-sm-10">
-		<div class="panel panel-info">
-			<!-- Default panel contents -->
-			<div class="panel-heading">Summary by customer</div>
-			<div class="panel-body">
-				<p class="text-info">The figures are orders til-date</p>
-			</div>
-
-			<!-- Table -->
-			<table class="table table-condensed">
-				<tr>
-					<th>Customer</th>
-					<th>Total</th>
-				</tr>
-				<% @sumbycustomer.each do |customer| %>
-				<tr>
-					<td><%= customer.customer.store %></td>
-					<td><%= customer.total %></td>
-				</tr>
-				<% end %>
-			</table>
-		</div>
+<div class="panel panel-info">
+	<!-- Default panel contents -->
+	<div class="panel-heading">Summary by customer</div>
+	<div class="panel-body">
+		<p class="text-info">The figures are orders til-date</p>
 	</div>
-	<div class="col-sm-10">
-		<div class="panel panel-info">
-			<!-- Default panel contents -->
-			<div class="panel-heading">Summary by city</div>
-			<div class="panel-body">
-				<p class="text-info">The figures are orders til-date</p>
-			</div>
-
-			<!-- Table -->
-			<table class="table table-condensed">
-				<tr>
-					<th>City</th>
-					<th>Total</th>
-				</tr>
-				<% @sumbycity.each do |city| %>
-				<tr>
-					<td><%= city.city %></td>
-					<td><%= city.total %></td>
-				</tr>
-				<% end %>
-			</table>
-		</div>
+	<!-- Table -->
+	<table class="table table-condensed">
+		<tr>
+			<th>Customer</th>
+			<th class="text-right">Total</th>
+		</tr>
+		<% @sumbycustomer.each do |customer| %>
+		<tr>
+			<td><%= customer.customer.store %></td>
+			<td class="text-right"><%= customer.total %></td>
+		</tr>
+		<% end %>
+	</table>
+</div>
+<div class="panel panel-success">
+	<!-- Default panel contents -->
+	<div class="panel-heading">Summary by city</div>
+	<div class="panel-body">
+		<p class="text-info">The figures are orders til-date</p>
 	</div>
-	<div class="col-sm-10">
-		<div class="panel panel-info">
-			<!-- Default panel contents -->
-			<div class="panel-heading">Summary by Year-Month</div>
-			<div class="panel-body">
-				<p class="text-info">The figures are orders til-date</p>
-			</div>
-
-			<!-- Table -->
-			<table class="table table-condensed">
-				<tr>
-					<th>Year-month</th>
-					<th>Total</th>
-				</tr>
-				<% @sumbytime.each do |yearmo| %>
-				<tr>
-					<td><%= yearmo.year_month %></td>
-					<td><%= yearmo.total %></td>
-				</tr>
-				<% end %>
-			</table>
-		</div>
+	<!-- Table -->
+	<table class="table table-condensed">
+		<tr>
+			<th>City</th>
+			<th class="text-right">Total</th>
+		</tr>
+		<% @sumbycity.each do |city| %>
+		<tr>
+			<td><%= city.city %></td>
+			<td class="text-right"><%= city.total %></td>
+		</tr>
+		<% end %>
+	</table>
+</div>
+<div class="panel panel-warning">
+	<!-- Default panel contents -->
+	<div class="panel-heading">Summary by Year-Month</div>
+	<div class="panel-body">
+		<p class="text-info">The figures are orders til-date</p>
 	</div>
-	
-	<div class="col-sm-10">
-		<%#= image_tag "graph3.png", class: "img-rounded", size: "300x300"%>
-	</div>
-	<div class="col-sm-10">
-		<ul class="nav nav-pills nav-stacked">
-			<li><%#= link_to "By customer", reports_sumbycustomer_path %></li>
-			<li><%#= link_to "By time", reports_sumbytime_path %></li>
-			<li><%#= link_to "By city", reports_sumbycity_path %></li>
-		</ul>
-	</div>
+	<!-- Table -->
+	<table class="table table-condensed">
+		<tr>
+			<th>Year-month</th>
+			<th class="text-right">Total</th>
+		</tr>
+		<% @sumbytime.each do |yearmo| %>
+		<tr>
+			<td><%= yearmo.year_month %></td>
+			<td class="text-right"><%= yearmo.total %></td>
+		</tr>
+		<% end %>
+	</table>
 </div>

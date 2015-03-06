@@ -13,7 +13,7 @@
 		</tr>
 		<% @sumbycustomer.each do |customer| %>
 		<tr>
-			<td class="text-capitalize"><%= customer.customer.store %></td>
+			<td class="text-capitalize"><%= link_to customer.customer.store, customer_path(customer.customer_id) %></td>
 			<td class="text-right"><%= number_with_delimiter(customer.total, delimiter: ",") %></td>
 		</tr>
 		<% end %>

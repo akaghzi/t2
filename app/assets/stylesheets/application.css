@@ -16,3 +16,6 @@
 body {
 	padding: 0px 10px;
 }
+
+@icon-font-path:          "../fonts/";
+@icon-font-name:          "glyphicons-halflings-regular";

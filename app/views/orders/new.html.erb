@@ -1,5 +1,4 @@
 <h1 class="page-header text-primary">
-	<%= link_to "#{@order.customer.store} | #{@order.customer.city}", customer_path(@order.customer) %>
+	<%= link_to "#{@order.customer.store} | #{@order.customer.city.name}", customer_path(@order.customer) %>
 </h1>
-
 <%= render 'form' %>

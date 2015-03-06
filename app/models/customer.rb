@@ -4,4 +4,9 @@ class Customer < ActiveRecord::Base
   validates :owner, :store, :phone, presence: true
   before_save { |customer| customer.owner = customer.owner.downcase }
   before_save { |customer| customer.store = customer.store.downcase }
+  
+  def self.search(search)
+    where("store like lower(?)", "%#{search}%")
+  end
+  
 end

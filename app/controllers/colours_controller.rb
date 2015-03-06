@@ -4,7 +4,11 @@ class ColoursController < ApplicationController
   # GET /colours
   # GET /colours.json
   def index
-    @colours = Colour.all.order("name")
+    if params[:search]
+      @colours = Colour.search(params[:search])
+    else
+      @colours = Colour.all.order("name")
+    end
   end
 
   # GET /colours/1

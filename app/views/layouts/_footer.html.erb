@@ -1,14 +1,12 @@
 <% if user_signed_in? %>
-<div class = "row">
-	<hr>
-	<ul class="nav nav-pills">
-		<li><%= link_to 'Home', root_path %></li>
-		<li><%= link_to 'Products', products_path %></li>
-		<li><%= link_to 'Colours', colours_path %></li>
-		<li><%= link_to 'Customers', customers_path %></li>
-		<li><%= link_to 'Reports', reports_index_path %></li>
-		<li class="pull-right"><%= link_to 'logout', destroy_user_session_path, method: :delete, class: "btn btn-danger btn-sm" %></li>
-	</ul>
-	<hr>
-</div>
+<hr>
+<ul class="nav nav-pills">
+	<li><%= link_to 'Home', root_path %></li>
+	<li><%= link_to 'Products', products_path %></li>
+	<li><%= link_to 'Colours', colours_path %></li>
+	<li><%= link_to 'Customers', customers_path %></li>
+	<li><%= link_to 'Reports', reports_index_path %></li>
+	<li class="pull-right"><%= link_to 'logout', destroy_user_session_path, method: :delete, class: "btn btn-danger btn-sm" %></li>
+</ul>
+<hr>
 <% end %>

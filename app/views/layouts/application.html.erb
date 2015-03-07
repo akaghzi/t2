@@ -8,16 +8,14 @@
 	<%= csrf_meta_tags %>
 </head>
 <body>
-	<div class  = "container-fluid">
+	<div class="container-fluid">
 		<% if notice %>
-		<p class = "alert alert-info"><%= notice %></p>
+		<p class="alert alert-info"><%= notice %></p>
 		<% end %>
 		<% if alert %>
-		<p class = "alert alert-danger alert-dismissible"><%= alert %></p>
+		<p class="alert alert-danger alert-dismisible"><%= alert %></p>
 		<% end %>
-		<div class="row">
 			<%= yield %>
-		</div>
 		<div class= "footer">
 			<%= render :partial => 'layouts/footer' %>
 		</div>

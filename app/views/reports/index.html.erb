@@ -1,61 +1,88 @@
-<h1 class="page-header">Reports</h1>
-<div class="panel panel-info">
-	<!-- Default panel contents -->
-	<div class="panel-heading"><h4>Summary by customer</h4></div>
-	<div class="panel-body">
-		<div class="text-info text-right">The figures are orders til-date</div>
+<div class="row">
+	<div class="col-sm-12">
+		<h1 class="page-header">Reports</h1>
+		<div class="panel panel-info">
+			<!-- Default panel contents -->
+			<div class="panel-heading"><h4>Summary by customer</h4></div>
+			<div class="panel-body">
+				<div class="text-info text-right">The figures are orders til-date</div>
+			</div>
+			<!-- Table -->
+			<table class="table table-striped">
+				<tr>
+					<th>Customer</th>
+					<th class="text-right">Total</th>
+				</tr>
+				<% @sumbycustomer.each do |customer| %>
+				<tr>
+					<td class="text-capitalize"><%= link_to customer.customer.store, customer_path(customer.customer_id) %></td>
+					<td class="text-right"><%= number_with_delimiter(customer.total, delimiter: ",") %></td>
+				</tr>
+				<% end %>
+			</table>
+		</div>
+		<div class="panel panel-success">
+			<!-- Default panel contents -->
+			<div class="panel-heading"><h4>Summary by city</h4></div>
+			<div class="panel-body">
+				<div class="text-info text-right">The figures are orders til-date</div>
+			</div>
+			<!-- Table -->
+			<table class="table table-striped">
+				<tr>
+					<th>City</th>
+					<th class="text-right">Total</th>
+				</tr>
+				<% @sumbycity.each do |city| %>
+				<tr>
+					<td class="text-capitalize"><%= city.name %></td>
+					<td class="text-right"><%= number_with_delimiter(city.total, delimiter: ",") %></td>
+				</tr>
+				<% end %>
+			</table>
+		</div>
+		<div class="panel panel-warning">
+			<!-- Default panel contents -->
+			<div class="panel-heading"><h4>Summary by year-month</h4></div>
+			<div class="panel-body">
+				<div class="text-info text-right">The figures are orders til-date</div>
+			</div>
+			<!-- Table -->
+			<table class="table table-striped">
+				<tr>
+					<th>Year-month</th>
+					<th class="text-right">Total</th>
+				</tr>
+				<% @sumbytime.each do |yearmo| %>
+				<tr>
+					<td><%= yearmo.year_month %></td>
+					<td class="text-right"><%= number_with_delimiter(yearmo.total, delimiter: ",") %></td>
+				</tr>
+				<% end %>
+			</table>
+		</div>
 	</div>
-	<!-- Table -->
-	<table class="table table-striped">
-		<tr>
-			<th>Customer</th>
-			<th class="text-right">Total</th>
-		</tr>
-		<% @sumbycustomer.each do |customer| %>
-		<tr>
-			<td class="text-capitalize"><%= link_to customer.customer.store, customer_path(customer.customer_id) %></td>
-			<td class="text-right"><%= number_with_delimiter(customer.total, delimiter: ",") %></td>
-		</tr>
-		<% end %>
-	</table>
 </div>
-<div class="panel panel-success">
-	<!-- Default panel contents -->
-	<div class="panel-heading"><h4>Summary by city</h4></div>
-	<div class="panel-body">
-		<div class="text-info text-right">The figures are orders til-date</div>
+<!-- <div class="row">
+	<div class="col-sm-4">
+		<div class="simple-box bg-orange">
+			<div class="simple-box bg-white">
+				hello
+			</div>
+		</div>
 	</div>
-	<!-- Table -->
-	<table class="table table-striped">
-		<tr>
-			<th>City</th>
-			<th class="text-right">Total</th>
-		</tr>
-		<% @sumbycity.each do |city| %>
-		<tr>
-			<td class="text-capitalize"><%= city.name %></td>
-			<td class="text-right"><%= number_with_delimiter(city.total, delimiter: ",") %></td>
-		</tr>
-		<% end %>
-	</table>
-</div>
-<div class="panel panel-warning">
-	<!-- Default panel contents -->
-	<div class="panel-heading"><h4>Summary by year-month</h4></div>
-	<div class="panel-body">
-		<div class="text-info text-right">The figures are orders til-date</div>
+	<div class="col-sm-4">
+		<div class="simple-box bg-orange">
+			<div class="simple-box bg-white">
+				hello
+			</div>
+		</div>
 	</div>
-	<!-- Table -->
-	<table class="table table-striped">
-		<tr>
-			<th>Year-month</th>
-			<th class="text-right">Total</th>
-		</tr>
-		<% @sumbytime.each do |yearmo| %>
-		<tr>
-			<td><%= yearmo.year_month %></td>
-			<td class="text-right"><%= number_with_delimiter(yearmo.total, delimiter: ",") %></td>
-		</tr>
-		<% end %>
-	</table>
-</div>
+	<div class="col-sm-4">
+		<div class="simple-box bg-orange">
+			<div class="simple-box bg-white">
+				hello
+			</div>
+		</div>
+	</div>
+</div> -->

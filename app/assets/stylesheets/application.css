@@ -13,9 +13,9 @@
  *= require_tree .
  *= require_self
  */
-body {
+/*body {
 	padding: 0px 10px;
-}
+}*/
 
 @icon-font-path:          "../fonts/";
 @icon-font-name:          "glyphicons-halflings-regular";
@@ -26,4 +26,16 @@ body {
 	height: 100px;
 /*	background-color: lightgrey;*/
 	box-shadow: 10px 10px 5px #888888;		
+}
+
+.bg-orange {
+	background-color: #ffa500;
+}
+
+.bg-white {
+	background-color: #fff;
+}
+
+.simple-box {
+	padding: 8px;
 }

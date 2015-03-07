@@ -1,5 +1,5 @@
 <div class="jumbotron">
-	<h2>Log in</h2>
+	<h2 class="col-sm-offset-2">Sign in</h2>
 
 	<%= form_for(resource, as: resource_name, html: {class: "form-horizontal"}, url: session_path(resource_name)) do |f| %>
 	<div class="form-group">
@@ -35,7 +35,7 @@
 		<div class="control-label">
 		</div>
 		<div class="col-sm-offset-2 col-sm-10">
-			<%= f.submit "Log in", class: "btn btn-default" %>
+			<%= f.submit "Sign in", class: "btn btn-primary" %>
 			<%= link_to "Cancel", root_path, class: "btn btn-warning"%>
 		</div>
 	</div>

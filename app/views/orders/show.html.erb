@@ -26,7 +26,7 @@
 		<td><%= order_line.quantity %></td>
 		<td><%= order_line.price %></td>
 		<td><%= order_line.price * order_line.quantity %></td>
-		<td><%#= link_to "edit", edit_order_line_path(order_line), class: "btn btn-warning btn-sm" %>
+		<td><%= link_to "edit", edit_order_line_path(order_line), class: "btn btn-warning btn-sm" %>
 			<%= link_to "delete", order_line_path(order_line), method: :delete, class: "btn btn-danger btn-sm" %>
 		</td>
 	</tr>

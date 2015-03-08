@@ -30,16 +30,15 @@ class OrderLinesController < ApplicationController
     respond_to do |format|
       if @order_line.save
         # Debugging code
-        logger.info "+++ order_id: #{@order_line.order_id}"
-        logger.info "+++ price: #{@order_line.price}"
-        logger.info "+++ quantity: #{@order_line.quantity}"
+        # logger.info "+++ order_id: #{@order_line.order_id}"
+        # logger.info "+++ price: #{@order_line.price}"
+        # logger.info "+++ quantity: #{@order_line.quantity}"
         line_total = @order_line.price * @order_line.quantity
-        logger.info "+++ line_total: #{line_total}"
+        # logger.info "+++ line_total: #{line_total}"
         order = Order.find(@order_line.order_id)
         order_total = order.order_amount || 0
-        logger.info "+++ order total: #{order_total}"
+        # logger.info "+++ order total: #{order_total}"
         order.update(order_amount: (order_total + line_total))
-
         format.html { redirect_to order_path(@order_line.order_id), notice: 'Order item was successfully added.' }
         format.json { render :show, status: :created, location: @order_line }
       else
@@ -52,9 +51,15 @@ class OrderLinesController < ApplicationController
   # PATCH/PUT /order_lines/1
   # PATCH/PUT /order_lines/1.json
   def update
+    order = Order.find(@order_line.order_id)
+    old_item_total = @order_line.quantity * @order_line.price
+    # logger.info "order_line item old price: #{@order_line.price}"
     respond_to do |format|
       if @order_line.update(order_line_params)
-        format.html { redirect_to order_path(@order_line.order_id), notice: 'Order line was successfully updated.' }
+        # logger.info "order_line item new price: #{@order_line.price}"
+        diff_total = (@order_line.quantity * @order_line.price) - old_item_total
+        order.update(order_amount: (order.order_amount + diff_total))
+         format.html { redirect_to order_path(@order_line.order_id), notice: 'Order line was successfully updated.' }
         format.json { render :show, status: :ok, location: @order_line }
       else
         format.html { render :edit }
@@ -68,17 +73,17 @@ class OrderLinesController < ApplicationController
   def destroy
     order_line = @order_line
     @order_line.destroy
-    logger.info "**** ITEM DESTROYED ****"
-    logger.info "+++ order_id: #{order_line.order_id}"
-    logger.info "+++ price: #{order_line.price}"
-    logger.info "+++ quantity: #{order_line.quantity}"
+    # logger.info "**** ITEM DESTROYED ****"
+    # logger.info "+++ order_id: #{order_line.order_id}"
+    # logger.info "+++ price: #{order_line.price}"
+    # logger.info "+++ quantity: #{order_line.quantity}"
     line_total = order_line.price * order_line.quantity
-    logger.info "+++ line_total: #{line_total}"
+    # logger.info "+++ line_total: #{line_total}"
     order = Order.find(order_line.order_id)
     order_total = order.order_amount
-    logger.info "+++ order total: #{order_total}"
+    # logger.info "+++ order total: #{order_total}"
     order.update(order_amount: (order_total - line_total))
-    logger.info "****"
+    # logger.info "****"
     
     respond_to do |format|
       format.html { redirect_to order_path(order_line.order_id), notice: 'Order was successfully updated.' }
